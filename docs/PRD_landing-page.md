@@ -1,8 +1,8 @@
-# PRD — Landing Informativa para Carrera Popular
+# PRD — San Antón Trail · La conquista del Molino
 
 ## Objetivo
 
-Crear una landing page moderna, rápida y responsive para una carrera popular anual que se celebra en enero.
+Crear una landing page moderna, rápida y responsive para el San Antón Trail — La conquista del Molino, carrera trail anual en Puerto Lápice (Ciudad Real) cada enero.
 
 La web debe ser:
 - meramente informativa,
@@ -63,7 +63,7 @@ El objetivo es tener una primera versión funcional y profesional con el menor c
   Hero.tsx
   Countdown.tsx
   AboutRace.tsx
-  Distances.tsx
+  Modalities.tsx
   RouteSection.tsx
   Gallery.tsx
   Sponsors.tsx
@@ -128,12 +128,12 @@ muted: #9CA3AF;
 ## 1. Navbar
 
 Elementos:
-- Logo/nombre carrera
+- Logo / "San Antón Trail"
 - Inicio
 - Recorrido
+- Modalidades
 - FAQ
-- Patrocinadores
-- Botón “Inscribirse”
+- Botón "Inscribirse"
 
 Navbar sticky con blur/transparencia al hacer scroll.
 
@@ -142,17 +142,17 @@ Navbar sticky con blur/transparencia al hacer scroll.
 # 2. Hero Section
 
 Contenido:
-- nombre carrera
-- fecha
-- ubicación
-- claim/mensaje potente
+- "San Antón Trail"
+- "La conquista del Molino" (subtítulo)
+- "11 de enero · Puerto Lápice, Ciudad Real"
+- claim: "La carrera con la que empiezas el año, entre senderos y cervezas post-carrera"
 - botón principal:
-  - “Inscribirse”
+  - "Inscribirse" (registrationUrl → placeholder "#")
 - botón secundario:
-  - “Ver recorrido”
+  - "Ver recorrido"
 
 Debe incluir:
-- imagen de fondo fullscreen
+- imagen de fondo fullscreen (placeholder mientras no haya fotos)
 - overlay oscuro
 - animaciones suaves
 
@@ -165,7 +165,7 @@ Ejemplo visual:
 
 # 3. Cuenta Atrás
 
-Componente countdown hacia la fecha de la carrera.
+Componente countdown hacia la fecha de la carrera (11 de enero, edición anual).
 
 Mostrar:
 - días
@@ -182,57 +182,69 @@ Diseño:
 # 4. Información General
 
 Bloque con:
-- descripción breve de la carrera
-- ambiente
-- terreno
-- experiencia
-- dificultad
+- descripción: trail por campo en Puerto Lápice, La Mancha
+- ambiente: festivo, cervezas post-carrera
+- terreno: caminos rurales y senderos
+- experiencia: accesible para todos los niveles (desde Senderismo 10K hasta Carrera 15.2K)
+- dificultad: variable según modalidad
 
 Máximo 2-3 párrafos.
 
 ---
 
-# 5. Distancias
+# 5. Modalidades
 
 Cards para cada modalidad.
 
-Ejemplo:
-- 5K
-- 10K
-- 21K
+Modalidades:
+1. **Senderismo 10K** — no competitiva
+   - distancia: 10 km
+   - desnivel: TBD
+   - dificultad: Baja
+   - hora salida: 9:00
+   - tipo: marche / senderismo
+2. **Carrera 15.2K** — competitiva
+   - distancia: 15.2 km
+   - desnivel: TBD
+   - dificultad: Media
+   - hora salida: 10:00
+   - tipo: trail running competitivo
 
 Cada card incluye:
 - distancia
-- desnivel
+- desnivel (placeholder)
 - dificultad
 - hora salida
-- tiempo límite
+- tipo (competitiva / no competitiva)
 
 Diseño:
 - cards modernas
 - hover animations
 - grid responsive
+- distinguir visualmente marcha vs carrera
 
 ---
 
 # 6. Recorrido
 
 Sección con:
-- mapa o imagen del recorrido
+- mapa o imagen del recorrido (placeholder)
 - descarga GPX (placeholder)
-- descripción breve
+- descripción breve: "Trail por los caminos rurales y senderos de Puerto Lápice"
 
 Posibilidad futura:
 - integrar mapa interactivo
 
 Por ahora:
-- imagen estática optimizada
+- imagen estática optimizada (placeholder)
 
 ---
 
 # 7. Galería
 
 Grid responsive de imágenes.
+
+⚠️ Placeholder — sin fotos de ediciones anteriores todavía.
 
 Características:
 - lazy loading
@@ -245,9 +257,9 @@ Usar componente Image de Next.js.
 
 # 8. FAQ
 
-Accordion simple.
+⚠️ Placeholder — sin preguntas frecuentes todavía.
 
-Preguntas típicas:
+Accordion simple con preguntas típicas (por confirmar):
 - edad mínima
 - avituallamientos
 - recogida dorsales
@@ -257,6 +269,8 @@ Preguntas típicas:
 ---
 
 # 9. Patrocinadores
+
+⚠️ Placeholder — sin logos de patrocinadores todavía.
 
 Grid simple de logos.
 
@@ -272,10 +286,10 @@ Formato:
 # 10. Footer
 
 Contenido:
-- redes sociales
-- email contacto
-- copyright
-- enlaces legales
+- redes sociales (placeholder — sin perfiles todavía)
+- email contacto (placeholder)
+- copyright: "© 2025 San Antón Trail"
+- enlaces legales (placeholder)
 
 ---
 
@@ -287,22 +301,39 @@ Crear un archivo:
 /data/race.ts
 ```
 
-Con estructura similar:
+Con estructura:
 
 ```ts
 export const raceData = {
-  name: "Nombre Carrera",
-  date: "2027-01-15",
-  city: "Guardamar del Segura",
+  name: "San Antón Trail",
+  subtitle: "La conquista del Molino",
+  date: "2026-01-11",
+  city: "Puerto Lápice, Ciudad Real",
   registrationUrl: "#",
-  heroTitle: "Corre donde empieza el invierno",
+  heroTitle: "La carrera con la que empiezas el año, entre senderos y cervezas post-carrera",
   distances: [
     {
-      name: "10K",
-      elevation: "120m",
+      name: "Senderismo 10K",
+      distance: "10 km",
+      elevation: "TBD",
+      difficulty: "Baja",
+      startTime: "9:00",
+      type: "no competitiva",
+    },
+    {
+      name: "Carrera 15.2K",
+      distance: "15.2 km",
+      elevation: "TBD",
       difficulty: "Media",
+      startTime: "10:00",
+      type: "competitiva",
     },
   ],
+  social: {
+    instagram: "#",
+    strava: "#",
+  },
+  contactEmail: "placeholder@sat.com",
 };
 ```
 
@@ -328,11 +359,13 @@ Schema.org:
 - tipo Event
 
 Keywords orientativas:
-- carrera popular
 - trail running
-- running enero
-- carrera Alicante
-- carrera Guardamar
+- carrera popular
+- carrera enero
+- Puerto Lápice
+- Ciudad Real
+- La Mancha
+- San Antón
 
 ---
 

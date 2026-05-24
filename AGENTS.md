@@ -2,7 +2,7 @@
 
 ## Project
 
-Landing page for "San Antón Trail — La conquista del molino" (annual trail race in Guardamar del Segura, January). Fully static, no backend/auth/DB.
+Landing page for "San Antón Trail — La conquista del Molino" (annual trail race in Puerto Lápice, Ciudad Real, January). Fully static, no backend/auth/DB.
 
 ## Stack
 
@@ -22,7 +22,7 @@ Landing page for "San Antón Trail — La conquista del molino" (annual trail ra
 
 ## Planned sections (in order)
 
-Navbar (sticky, blur on scroll) → Hero (fullscreen bg, countdown, CTAs) → Countdown → About → Distances (5K/10K/21K cards) → Route (static map + GPX download) → Gallery (Next.js Image, lazy, hover zoom) → Sponsors → FAQ (accordion) → Footer
+Navbar (sticky, blur on scroll) → Hero (fullscreen bg, countdown, CTAs) → Countdown → About → Modalities (Senderismo 10K / Carrera 15.2K cards) → Route (static map + GPX download) → Gallery (Next.js Image, lazy, hover zoom) → Sponsors → FAQ (accordion) → Footer
 
 ## Conventions
 
@@ -33,11 +33,11 @@ Navbar (sticky, blur on scroll) → Hero (fullscreen bg, countdown, CTAs) → Co
 - All sections are client components where animation is needed, server components otherwise
 - Target Lighthouse >90
 
-## Development (expected, as no package.json yet)
+## Development
 
 ```sh
 npm run dev    # dev server
-npm run build  # static export
+npm run build  # production build
 ```
 
 ## Out of scope
