@@ -13,7 +13,7 @@ export default function About() {
               <p className="text-white/40 text-sm">Modalidades</p>
             </div>
             <div>
-              <p className="text-[#FF5A1F] text-2xl font-bold">2</p>
+              <p className="text-[#FF5A1F] text-2xl font-bold">3</p>
               <p className="text-white/40 text-sm">Ediciones</p>
             </div>
             <div>

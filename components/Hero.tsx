@@ -5,14 +5,22 @@ import { ChevronDown } from "lucide-react";
 import { raceData } from "@/data/race";
 
 export default function Hero() {
-  const eventDate = new Date(raceData.date + "T00:00:00");
-
   return (
     <section
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#0B0B0B]" />
+      <div className="absolute inset-0 flex">
+        <div
+          className="w-1/2 h-full bg-cover bg-center"
+          style={{ backgroundImage: "url('/gallery/amanecer_molinos.jpg')" }}
+        />
+        <div
+          className="w-1/2 h-full bg-cover bg-center"
+          style={{ backgroundImage: "url('/gallery/amanecer_molinos_2.jpg')" }}
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0B0B0B]" />
       <div className="absolute inset-0 bg-[#FF5A1F]/5" />
 
       <div className="relative z-10 max-w-4xl mx-auto">

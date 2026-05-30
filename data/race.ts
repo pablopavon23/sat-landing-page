@@ -1,7 +1,7 @@
 export const raceData = {
   name: "San Antón Trail",
   subtitle: "La conquista del Molino",
-  date: "2026-01-11",
+  date: "2027-01-10",
   city: "Puerto Lápice, Ciudad Real",
   registrationUrl: "#",
   heroTitle:
@@ -32,9 +32,9 @@ Ambiente festivo, cerveza fría y una ruta que te invita a descubrir el pueblo q
   routeDescription:
     "Trail por los caminos rurales y senderos de Puerto Lápice. Un recorrido que combina pistas de tierra, sendas y el entorno manchego.",
   social: {
-    instagram: "#",
-    strava: "#",
+    instagram: "https://www.instagram.com/sananton_trail",
+    facebook: "https://www.facebook.com/San Anton Trail",
   },
-  contactEmail: "placeholder@sat.com",
+  contactEmail: "sanantontrail@outlook.com",
   copyright: "© 2025 San Antón Trail",
 };

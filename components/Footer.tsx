@@ -1,4 +1,4 @@
-import { Instagram } from "lucide-react";
+import { Instagram, Facebook, Mail } from "lucide-react";
 import { raceData } from "@/data/race";
 
 export default function Footer() {
@@ -11,19 +11,34 @@ export default function Footer() {
             <p className="text-white/40 text-sm">{raceData.subtitle}</p>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             <a
               href={raceData.social.instagram}
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FF5A1F] transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-1 hover:text-[#FF5A1F] transition-colors"
               aria-label="Instagram"
             >
-              <Instagram size={18} className="text-white" />
+              <Instagram size={20} className="text-white" />
+              <span className="text-white/40 text-xs">Instagram</span>
+            </a>
+            <a
+              href={raceData.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-1 hover:text-[#FF5A1F] transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook size={20} className="text-white" />
+              <span className="text-white/40 text-xs">Facebook</span>
             </a>
             <a
               href={`mailto:${raceData.contactEmail}`}
-              className="text-white/50 text-sm hover:text-[#FF5A1F] transition-colors"
+              className="flex flex-col items-center gap-1 hover:text-[#FF5A1F] transition-colors"
+              aria-label="Email"
             >
-              {raceData.contactEmail}
+              <Mail size={20} className="text-white" />
+              <span className="text-white/40 text-xs">Email</span>
             </a>
           </div>
         </div>

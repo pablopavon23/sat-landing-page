@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { raceData } from "@/data/race";
 
@@ -11,31 +11,38 @@ interface TimeLeft {
 }
 
 function calculateTimeLeft(targetDate: string): TimeLeft {
-  const difference = new Date(targetDate + "T00:00:00").getTime() - new Date().getTime();
-  if (difference <= 0) return { days: 0, hours: 0, minutes: 0 };
+  const target = new Date(targetDate + "T00:00:00");
+  const now = new Date();
+  const diff = target.getTime() - now.getTime();
+
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0 };
 
   return {
-    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((difference / 1000 / 60) % 60),
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / 1000 / 60) % 60),
   };
 }
 
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0 });
+  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
+  const tick = useCallback(() => {
     setTimeLeft(calculateTimeLeft(raceData.date));
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft(raceData.date));
-    }, 60000);
-    return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    setMounted(true);
+    tick();
+    const timer = setInterval(tick, 60000);
+    return () => clearInterval(timer);
+  }, [tick]);
+
   const units = [
-    { label: "Días", value: timeLeft.days },
-    { label: "Horas", value: timeLeft.hours },
-    { label: "Min", value: timeLeft.minutes },
+    { label: "Días", value: mounted ? timeLeft.days : 0 },
+    { label: "Horas", value: mounted ? timeLeft.hours : 0 },
+    { label: "Min", value: mounted ? timeLeft.minutes : 0 },
   ];
 
   return (
