@@ -9,14 +9,23 @@ export default function Sponsors() {
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
-              className="aspect-video rounded-xl bg-white/5 flex items-center justify-center border border-white/10"
+              className="aspect-video rounded-xl bg-white/5 flex items-center justify-center border border-white/10 relative overflow-hidden"
             >
-              <p className="text-white/20 text-xs">Logo {i}</p>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-white/10 blur-xl" />
             </div>
           ))}
         </div>
 
-        <p className="text-white/20 text-sm mt-8">¿Quieres patrocinarnos? Escríbenos.</p>
+        <p className="text-white/20 text-sm mt-8">
+          ¿Quieres patrocinarnos?{" "}
+          <a
+            href="#footer"
+            className="text-[#FF5A1F] hover:underline"
+          >
+            Escríbenos
+          </a>
+          .
+        </p>
       </div>
     </section>
   );

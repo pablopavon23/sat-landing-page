@@ -3,7 +3,7 @@ import { raceData } from "@/data/race";
 
 export default function Footer() {
   return (
-    <footer className="py-12 px-4 border-t border-white/10">
+    <footer id="footer" className="py-12 px-4 border-t border-white/10">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">

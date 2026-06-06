@@ -1,4 +1,16 @@
-import { Image } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+const images = [
+  { src: "/gallery/panoramica_molinos.jpg", alt: "Panorámica de los molinos" },
+  { src: "/gallery/I_foto_mochila.jpg", alt: "Foto de espalda participantes" },
+  { src: "/gallery/II_post_carrera.jpg", alt: "Post carrera" },
+  { src: "/gallery/II_trofeos.jpg", alt: "Trofeos" },
+  { src: "/gallery/II_voluntarios.jpg", alt: "Voluntarios" },
+  { src: "/gallery/III_camiseta.jpg", alt: "Camiseta edición III" },
+];
 
 export default function Gallery() {
   return (
@@ -8,16 +20,24 @@ export default function Gallery() {
         <p className="text-white/50 mb-12">Momentos de ediciones anteriores.</p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div
-              key={i}
-              className="aspect-square rounded-xl bg-white/5 flex items-center justify-center border border-white/10"
+          {images.map((img, i) => (
+            <motion.div
+              key={img.src}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="relative aspect-square rounded-xl overflow-hidden group cursor-pointer"
             >
-              <div className="text-center">
-                <Image className="w-8 h-8 text-white/20 mx-auto mb-2" />
-                <p className="text-white/30 text-xs">Placeholder</p>
-              </div>
-            </div>
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 768px) 50vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
+            </motion.div>
           ))}
         </div>
       </div>
